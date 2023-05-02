@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs')%>
+<div class="content-event">
+    <h2>Choose an Event</h2>
+    <% if (categories.length) { %>
+        <% categories.forEach(category => { %>
+            <h3><%= category %></h3>
+            <% const eventsInCategory = events.filter(event => event.category === category); %>
+            <% if (eventsInCategory.length) { %>
+                <ul>
+                    <% eventsInCategory.forEach(event => { %>
+                        <a href="/events/<%= event.id %>" class="event-link" ><%= event.title %> </a>
+                        <br>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>There are no events in this category.</p>
+            <% } %>
+        <% }); %>
+    <% } else { %>
+        <p>There are no categories to display.</p>
+    <% } %>
+</div>
+</div>
+<%- include('../partials/footer.ejs')%>

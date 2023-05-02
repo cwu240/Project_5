@@ -1,0 +1,17 @@
+<%- include('../partials/header.ejs')%>
+    <div class = "content-event">
+      <h4><%= event.title%></h4>
+     <strong>Host:</strong> <%= event.hostName.firstName + ' ' + event.hostName.lastName %><br>
+     <strong>Date and Time:</strong> <%= event.startDate %> -- <%= event.endDate %> <br> 
+     <strong>Location:</strong> <%= event.location %><br>
+     <div id = "event"><strong>Details: </strong><%=event.content%></div>
+     <img src= "/images/<%= event.image %>" alt="Image" style="width: 20%">
+  <%if(user == event.hostName._id) {%>
+    <form>
+      <button type = "submit" formmethod="GET" formaction="/events/<%= event.id%>/edit">Edit</button>
+      <button type = "submit" formmethod="POST" formaction="/events/<%= event.id%>?_method=DELETE">Delete</button>
+    </form> 
+  <%}%>
+    </div>
+  </div>
+<%- include('../partials/footer.ejs')%>

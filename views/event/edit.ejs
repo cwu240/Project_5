@@ -1,0 +1,38 @@
+<%- include('../partials/header.ejs')%>
+    
+    <form method = "POST" action = "/events/<%= event.id%>?_method=PUT" class="new-form">
+        <label for="category">Category:</label>
+       
+        <select id="category" name="category" value="<= event.category %>" required>
+            <option value="">NONE</option>
+            <option value="FPS">FPS</option>
+            <option value="RTS">RTS</option>
+            <option value="MOBA">MOBA</option>
+            <option value="RACING">RACING</option>
+            <option value="VR">VR</option>
+            <option value="OTHER">OTHER</option>
+        </select>
+
+        <label for="title" >Title</label>
+        <input type="text" id="title" name="title" value = "<%= event.title%>" required>
+
+        <label for="content">Content</label>
+        <textarea rows="5" id="content" name="content" class = "fixed-width" required minlength="10"><%= event.content%></textarea>
+
+        
+        <label for="location">Where</label>
+        <input type="text" id="location" name="location" value="<%= event.location %>" required>
+
+        <label for="startDate">Start</label>
+        <input type="datetime-local" id="startDate" name="startDate"  value="<%= event.startDate %>" required>
+
+
+        <label for="endDate">End</label>
+        <input type="datetime-local" id="endDate" name="endDate"  value="<%= event.endDate %>" required>
+        
+        <input type="submit" value="Submit">   
+      
+    </form>
+
+    </div>
+    <%- include('../partials/footer.ejs')%>
